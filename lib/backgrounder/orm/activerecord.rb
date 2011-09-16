@@ -13,7 +13,7 @@ module CarrierWave
 
           class_eval  <<-RUBY, __FILE__, __LINE__ + 1
             def trigger_#{column}_background_processing?
-              process_#{column}_upload != true && #{column}_changed?
+              process_#{column}_upload != true
             end
           RUBY
         end
@@ -23,7 +23,7 @@ module CarrierWave
 
           class_eval  <<-RUBY, __FILE__, __LINE__ + 1
             def trigger_#{column}_background_storage?
-              process_#{column}_upload != true && #{column}_changed?
+              process_#{column}_upload != true
             end
           RUBY
         end
